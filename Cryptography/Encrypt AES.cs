@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Security.Cryptography;
 
-namespace Crypting
+namespace WindowsServiceUpdate
 {
     class Crypting
     {
@@ -17,10 +17,12 @@ namespace Crypting
 
             FileStream fsCypheredFile = new FileStream(file_outpout, FileMode.Create);
 
-            RijndaelManaged rijndael = new RijndaelManaged();
-            rijndael.Mode = CipherMode.CBC;
-            rijndael.Key = key;
-            rijndael.IV = iv;
+            RijndaelManaged rijndael = new RijndaelManaged
+            {
+                Mode = CipherMode.CBC,
+                Key = key,
+                IV = iv
+            };
 
 
             ICryptoTransform aesEncryptor = rijndael.CreateEncryptor();
@@ -73,8 +75,7 @@ namespace Crypting
             fsCrypt.Close();
 
         }
-
-
+      
         public void DecryptageFile(string password, string file_input, string file_outpout) { DecryptFile(password, file_input, file_outpout); }
         public void CryptageFile(string password, string file_input, string file_outpout) { EncryptFile(password, file_input, file_outpout); }
     }
