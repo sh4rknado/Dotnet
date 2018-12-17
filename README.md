@@ -1,3 +1,4 @@
+VIRUS
 # Dotnet class
 
 'Dotnet Class' is any class in C# to facilitate the codding and 
