@@ -1,0 +1,54 @@
+﻿<Window x:Class="Cisco_Script.ViewModel.AjouterDevice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cisco_Script.ViewModel"
+        mc:Ignorable="d"
+        Title="ajouter périphériques Réseaux" Height="612" Width="876">
+    <Grid>
+        <Button Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="368,546,0,0" Click="Button_Click" Height="25"/>
+        <Button Content="Réinitialiser" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="448,546,0,0" Click="Button_Click" Height="25"/>
+        <ComboBox SelectedIndex="0" Name="ComboDevice" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124" Margin="368,10,0,0" Height="28" SelectionChanged="ComboDevice_SelectionChanged" FontSize="14"/>
+        <Label Content="Périphérique :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="277,10,0,0" Width="86" Height="28"/>
+        <GroupBox Header="Securité du périphériques" Height="160" Margin="10,43,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="678">
+            <Grid>
+                <Label Content="Hostname :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="102" Height="23"/>
+                <Label Content="Password Enable :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0" Width="102" Height="23"/>
+                <Label Content="Password VTY :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66,0,0" Width="102" Height="23"/>
+                <Label Content="Password Console :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,94,0,0" Width="112" Height="23"/>
+                <TextBox Name="hostname_texbox" HorizontalAlignment="Left" Height="23" Margin="117,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="123"/>
+                <PasswordBox Name="pass1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" RenderTransformOrigin="0.488,0.389" Margin="117,38,0,0" Height="23"/>
+                <PasswordBox Name="pass2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" RenderTransformOrigin="0.488,0.389" Margin="117,66,0,0" Height="23"/>
+                <PasswordBox Name="pass3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" RenderTransformOrigin="0.488,0.389" Margin="117,94,0,0" Height="23"/>
+                <Label Content="Banniere :" HorizontalAlignment="Left" Margin="264,10,0,0" VerticalAlignment="Top" Height="23"/>
+                <TextBox  VerticalScrollBarVisibility="Auto" Name="banniere_textbox" HorizontalAlignment="Left" Height="110" Margin="331,10,0,0" TextWrapping="Wrap" Text="Unauthorized access to this device is prohibited!" VerticalAlignment="Top" Width="325" UndoLimit="96"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Interface Listes" Margin="10,208,0,0" HorizontalAlignment="Left" Width="523" Height="317" VerticalAlignment="Top">
+            <Grid>
+                <DataGrid Name="dataGrid_interface" Margin="10,0" Height="265" VerticalAlignment="Top" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsReadOnly="True" SelectionChanged="DataGrid_interface_SelectionChanged" />
+                <Button Name="ajouterbtn" Content="Ajouter" HorizontalAlignment="Left" Width="75" Click="Button_Click" Margin="194,270,0,0" Height="24" VerticalAlignment="Top" ToolTip="ajouter une interface dans la datagrid"/>
+                <Button Name="modifierbtn" Content="Modifier" HorizontalAlignment="Left" Width="75" Click="Button_Click" Margin="274,270,0,0" Height="24" VerticalAlignment="Top"  ToolTip="Modifier l'interface séléectionnée dans la datagrid"/>
+                <Button Name="supprimerbtn" Content="Supprimer" HorizontalAlignment="Left" Width="75" Click="Button_Click" Margin="354,270,0,0" Height="24" VerticalAlignment="Top"  ToolTip="Supprimer l'interface séléectionnée dans la datagrid"/>
+                <Button Name="clonerbtn" Content="Cloner" HorizontalAlignment="Left" Width="75" Click="Button_Click" Margin="114,270,0,0" Height="24" VerticalAlignment="Top" ToolTip="Cloner l'interface séléectionnée dans la datagrid"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Margin="693,43,10,0" Header="Autres options" Height="160" VerticalAlignment="Top">
+            <Grid>
+                <CheckBox x:Name="domain_lookup" IsChecked="True" Content="no ip-domain-lookup" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="141" Margin="10,10,0,0" ToolTip="Désactiver la recherche DNS" Grid.ColumnSpan="2"/>
+                <CheckBox x:Name="switch_ipv6" Content="Compatible IPV6" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="115" ToolTip="flasher l'os cisco et activer le sdm prefer" Margin="10,30,0,0" Grid.ColumnSpan="2"/>
+                <CheckBox x:Name="router_ipv6" Content="Routage IPV6" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="115" ToolTip="Ipv6 uniscast-routing" Margin="10,50,0,0" Grid.ColumnSpan="2"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Routage du router" Margin="538,208,0,0" Height="317" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320">
+            <Grid HorizontalAlignment="Left" Width="308">
+                <DataGrid Name="Datagrid_Route" IsReadOnly="true" Margin="10,0,10,30"/>
+                <Button Name="AjouterRouteBtn" Content="Ajouter route" HorizontalAlignment="Left" Width="81" Click="Button_Click" Margin="10,270,0,0" ToolTip="ajouter une interface dans la datagrid"/>
+                <Button Name="modifRouteBtn" Content="Modifier route" HorizontalAlignment="Left" Width="96" Click="Button_Click" Margin="96,270,0,0"  ToolTip="Modifier l'interface séléectionnée dans la datagrid"/>
+                <Button Name="suppRouteBtn" Content="Supprimer route" HorizontalAlignment="Left" Width="101" Click="Button_Click" Margin="197,270,0,0"  ToolTip="Supprimer l'interface séléectionnée dans la datagrid"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Confirmer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="288,546,0,0" Click="Button_Click" Height="25"/>
+    </Grid>
+</Window>

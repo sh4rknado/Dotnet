@@ -1,0 +1,22 @@
+﻿<Window x:Class="Cisco_Script.ViewModel.AjouterRoute"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cisco_Script.ViewModel"
+        mc:Ignorable="d" Title="Ajouter une nouvelle route" Height="228" Width="422">
+    <Grid>
+        <GroupBox Header="Routing informations" Margin="10,10,10,0" Height="145" VerticalAlignment="Top">
+            <Grid>
+                <Label Content="Addresse IP du réseaux :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,22,0,0" Width="151"/>
+                <Label Content="Masque de sous réseaux :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,53,0,0" Width="151"/>
+                <Label Content="Interface sortie / next ip :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,79,0,0" Width="151"/>
+                <TextBox Name="textboxip" HorizontalAlignment="Left" Height="23" Margin="166,25,0,0" TextWrapping="Wrap" Text="192.168.1.0" VerticalAlignment="Top" Width="181" RenderTransformOrigin="0.5,0.5"/>
+                <TextBox Name="textboxcidr" HorizontalAlignment="Left" Height="23" Margin="166,53,0,0" TextWrapping="Wrap" Text="/24" VerticalAlignment="Top" Width="181" RenderTransformOrigin="0.5,0.5"/>
+                <TextBox Name="textboxinter" HorizontalAlignment="Left" Height="23" Margin="166,81,0,0" TextWrapping="Wrap" Text="FastEthernet 0/1" VerticalAlignment="Top" Width="181" RenderTransformOrigin="0.5,0.5"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Confirmer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="109,160,0,0" Click="Button_Click"/>
+        <Button Content="Annuler" HorizontalAlignment="Left" Width="75" Margin="189,160,0,0" Height="20" VerticalAlignment="Top" Click="Button_Click"/>
+    </Grid>
+</Window>
