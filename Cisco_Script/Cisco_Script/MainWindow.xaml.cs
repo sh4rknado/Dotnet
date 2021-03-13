@@ -20,29 +20,19 @@ namespace Cisco_Script {
     public partial class MainWindow : Window {
 
         private CiscoController controller = new CiscoController();
-        private List<Cisco_Device> cisco_Devices_List = new List<Cisco_Device>();
-        private Cisco_Device current_Device = new Cisco_Device();
-
-        private string file_path = Environment.CurrentDirectory + "\\Device.dat";
-        private string file_path2 = Environment.CurrentDirectory; 
-        private string file_path3 = Environment.CurrentDirectory;
-        private string file_path4 = Environment.CurrentDirectory;
-
-        internal List<Cisco_Device> Cisco_Devices_List { get => cisco_Devices_List; set => cisco_Devices_List = value; }
 
 
         /* Default Window Builder */
-        public MainWindow()
-        {
+        public MainWindow() {
             InitializeComponent();
-            Read_File();
-            my_datagrid.ItemsSource = Cisco_Devices_List;
+            my_datagrid.ItemsSource = this.controller.CiscoDevices;
         }
 
         /*----------------- < Events Sections > ------------- */
 
         private void Button_Click(object sender, RoutedEventArgs e) { Menu((sender as Button).Content.ToString()); }
-        private void My_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e) { current_Device = (sender as Cisco_Device); }
+        private void My_datagrid_SelectionChanged(object sender, SelectionChangedEventArgs e) { this.controller.CurrentDevice = (sender as Cisco_Device); }
+
 
         private void Menu(string Action)
         {

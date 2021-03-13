@@ -21,6 +21,7 @@ namespace Cisco_Script.Controller {
 
         public string CurrentDB { get => currentDB; set => currentDB = value; }
         internal List<Cisco_Device> CiscoDevices { get => ciscoDevices; set => ciscoDevices = value; }
+        internal Cisco_Device CurrentDevice { get => currentDevice; set => currentDevice = value; }
 
         #endregion
 
@@ -41,13 +42,13 @@ namespace Cisco_Script.Controller {
                 this.CiscoDevices.Add(ajd.Cisco_dev);
 
                 if(modify) {
-                    this.CiscoDevices.Remove(currentDevice);
-                    this.currentDevice = null;
+                    this.CiscoDevices.Remove(CurrentDevice);
+                    this.CurrentDevice = null;
                 }
             }
         }
         public void ModifyDevice() { this.AddDevice(true); }
-        public void DeleteDevice() {  this.CiscoDevices.Remove(this.currentDevice); }
+        public void DeleteDevice() {  this.CiscoDevices.Remove(this.CurrentDevice); }
         public void DeleteAllDevices() { this.CiscoDevices.Clear(); }
 
         #endregion
